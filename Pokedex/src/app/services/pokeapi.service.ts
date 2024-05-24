@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PokeapiService {
   private apiUrl = 'https://pokeapi.co/api/v2';
+  private favorites: Set<string> = new Set();
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +17,17 @@ export class PokeapiService {
 
   getPokemonList(limit: number, offset: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/pokemon?limit=${limit}&offset=${offset}`);
+  }
+
+  addFavorite(name: string) {
+    this.favorites.add(name);
+  }
+
+  removeFavorite(name: string) {
+    this.favorites.delete(name);
+  }
+
+  isFavorite(name: string): boolean {
+    return this.favorites.has(name);
   }
 }

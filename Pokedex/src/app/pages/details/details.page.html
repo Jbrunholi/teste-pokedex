@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pokémon Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="pokemon">
+    <ion-card>
+      <img [src]="pokemon.sprites.front_default" />
+      <ion-card-header>
+        <ion-card-title>{{ pokemon.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Height: {{ pokemon.height }}</p>
+        <p>Weight: {{ pokemon.weight }}</p>
+        <p>Base Experience: {{ pokemon.base_experience }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ pokemon.name }}</ion-card-title>
+    <ion-button (click)="toggleFavorite()">
+      {{ isFavorite ? 'Unfavorite' : 'Favorite' }}
+    </ion-button>
+  </ion-card-header>
+</ion-card>
