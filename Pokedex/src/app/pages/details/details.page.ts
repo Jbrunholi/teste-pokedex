@@ -17,25 +17,20 @@ export class DetailsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    const name = this.route.snapshot.paramMap.get('name');
-    if (name) {
-      this.pokeapiService.getPokemon(name).subscribe(response => {
-        this.pokemon = response;
-        this.isFavorite = this.pokeapiService.isFavorite(name);
-      });
-    }
+    const name = this.route.snapshot.paramMap.get('name') ?? '';
+    this.pokeapiService.getPokemon(name).subscribe(response => {
+      this.pokemon = response;
+      this.isFavorite = this.pokeapiService.isFavorite(name);
+    });
   }
 
   toggleFavorite() {
-    if (this.pokemon) {
-      const name = this.pokemon.name;
-      if (this.isFavorite) {
-        this.pokeapiService.removeFavorite(name);
-      }
-      else {
-        this.pokeapiService.addFavorite(name);
-      }
-      this.isFavorite = !this.isFavorite;
+    const name = this.pokemon.name;
+    if (this.isFavorite) {
+      this.pokeapiService.removeFavorite(name);
+    } else {
+      this.pokeapiService.addFavorite(name);
     }
+    this.isFavorite = !this.isFavorite;
   }
 }
