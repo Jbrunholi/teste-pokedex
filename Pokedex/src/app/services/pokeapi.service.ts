@@ -15,6 +15,10 @@ export class PokeapiService {
     return this.http.get(`${this.apiUrl}/pokemon/${name}`);
   }
 
+  getPokemonDetails(name: string) {
+    return this.http.get<any>(`${this.apiUrl}/pokemon/${name}`);
+  }
+
   getPokemonList(limit: number, offset: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/pokemon?limit=${limit}&offset=${offset}`);
   }

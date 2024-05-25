@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokeapiService } from '../../services/pokeapi.service';
+import { HomePage } from '../home/home.page';
+import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
   selector: 'app-details',
@@ -13,24 +15,23 @@ export class DetailsPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pokeapiService: PokeapiService
+    private pokeapiService: PokeapiService,
+    private homePage: HomePage,
+    private favoriteService: FavoriteService
   ) { }
 
   ngOnInit() {
-    const name = this.route.snapshot.paramMap.get('name') ?? '';
-    this.pokeapiService.getPokemon(name).subscribe(response => {
-      this.pokemon = response;
-      this.isFavorite = this.pokeapiService.isFavorite(name);
-    });
+    const name = this.route.snapshot.paramMap.get('name');
+    if (name) {
+      this.pokeapiService.getPokemonDetails(name).subscribe(data => {
+        this.pokemon = data;
+        this.isFavorite = this.favoriteService.isFavorite(this.pokemon);
+      });
+    }
   }
 
   toggleFavorite() {
-    const name = this.pokemon.name;
-    if (this.isFavorite) {
-      this.pokeapiService.removeFavorite(name);
-    } else {
-      this.pokeapiService.addFavorite(name);
-    }
     this.isFavorite = !this.isFavorite;
+    this.favoriteService.toggleFavorite(this.pokemon);
   }
 }

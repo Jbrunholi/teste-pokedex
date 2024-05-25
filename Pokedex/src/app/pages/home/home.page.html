@@ -1,17 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Pokémon List
-    </ion-title>
+    <ion-title>Pokédex</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="filterPokemons($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="favoritePokemons.length > 0">
+    <ion-title>Favorites</ion-title>
+    <ion-list>
+      <ion-item *ngFor="let pokemon of favoritePokemons" (click)="goToDetails(pokemon)">
+        <ion-label>{{ pokemon.name }}</ion-label>
+        <ion-avatar slot="end">
+          <img [src]="pokemon.sprites.front_default" />
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-title>All Pokémon</ion-title>
   <ion-list>
-    <ion-item *ngFor="let pokemon of pokemons" [routerLink]="['/details', pokemon.name]">
+    <ion-item *ngFor="let pokemon of filteredPokemons" (click)="goToDetails(pokemon)">
       <ion-label>{{ pokemon.name }}</ion-label>
+      <ion-avatar slot="end">
+        <img [src]="pokemon.sprites.front_default" />
+      </ion-avatar>
     </ion-item>
   </ion-list>
+
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>

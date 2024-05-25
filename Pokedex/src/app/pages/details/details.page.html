@@ -1,29 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Pokémon Details
-    </ion-title>
+    <ion-title>{{ pokemon?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'star' : 'star-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="pokemon">
-    <ion-card>
-      <img [src]="pokemon.sprites.front_default" />
-      <ion-card-header>
-        <ion-card-title>{{ pokemon.name }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Height: {{ pokemon.height }}</p>
-        <p>Weight: {{ pokemon.weight }}</p>
-        <p>Base Experience: {{ pokemon.base_experience }}</p>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  <ion-card *ngIf="pokemon">
+    <img [src]="pokemon?.sprites?.front_default" />
+    <ion-card-header>
+      <ion-card-title>{{ pokemon?.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Altura: {{ pokemon?.height }}</p>
+      <p>Peso: {{ pokemon?.weight }}</p>
+      <p>Base Experience: {{ pokemon?.base_experience }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 <ion-card>
   <ion-card-header>
-    <ion-card-title>{{ pokemon.name }}</ion-card-title>
+    <ion-card-title>{{ pokemon?.name }}</ion-card-title>
     <ion-button (click)="toggleFavorite()">
       {{ isFavorite ? 'Unfavorite' : 'Favorite' }}
     </ion-button>
