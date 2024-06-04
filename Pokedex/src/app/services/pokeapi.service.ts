@@ -23,10 +23,6 @@ export class PokeapiService {
     return this.http.get(`${this.apiUrl}/pokemon?limit=${limit}&offset=${offset}`);
   }
 
-  getPokemonDetails(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/pokemon/${id}`);
-  }
-
   getPokemonSpecies(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/pokemon-species/${id}`);
   }

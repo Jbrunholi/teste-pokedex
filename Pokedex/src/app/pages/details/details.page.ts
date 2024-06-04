@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PokeapiService } from '../../services/pokeapi.service';
-<<<<<<< HEAD
 import { SharedModule } from 'src/app/shared/shared.module';
-=======
-import { HomePage } from '../home/home.page';
-import { FavoriteService } from 'src/app/services/favorite.service';
->>>>>>> 4618967c169ccd752e3f116c97f8ac331d2cc9a7
 
 @Component({
   selector: 'app-details',
@@ -21,12 +16,7 @@ export class DetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private pokeapiService: PokeapiService,
-<<<<<<< HEAD
     private router: Router
-=======
-    private homePage: HomePage,
-    private favoriteService: FavoriteService
->>>>>>> 4618967c169ccd752e3f116c97f8ac331d2cc9a7
   ) { }
 
   ngOnInit() {
@@ -34,7 +24,6 @@ export class DetailsPage implements OnInit {
     if (name) {
       this.pokeapiService.getPokemonDetails(name).subscribe(data => {
         this.pokemon = data;
-<<<<<<< HEAD
         if (data.species && data.species.url) {
           this.loadEvolutionChain(data.species.url);
         }
@@ -68,16 +57,10 @@ export class DetailsPage implements OnInit {
         });
       }
     });
-=======
-        this.isFavorite = this.favoriteService.isFavorite(this.pokemon);
-      });
-    }
->>>>>>> 4618967c169ccd752e3f116c97f8ac331d2cc9a7
   }
 
   toggleFavorite() {
     this.isFavorite = !this.isFavorite;
-    this.favoriteService.toggleFavorite(this.pokemon);
   }
 
   capitalizeFirstLetter(name: string | undefined): string {
