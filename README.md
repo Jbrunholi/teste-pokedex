@@ -42,6 +42,9 @@ src/
 │   │   ├── pokeapi.service.ts
 │   ├── app.component.ts
 │   ├── app.module.ts
+|   ├── Shared
+|   |   ├── pipes
+|   |   |   ├── capitalize.pipe.ts
 ├── assets/
 ├── theme/
 │   ├── variables.scss
@@ -84,3 +87,8 @@ Este comando iniciará um servidor de desenvolvimento e abrirá a aplicação no
 - Commit suas mudanças (git commit -am 'Adicionei uma nova funcionalidade').
 - Push para a branch (git push origin feature/nova-funcionalidade).
 - Abra um Pull Request.
+
+## Licença
+Este projeto é licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+Este projeto foi desenvolvido com o objetivo de aprender e praticar Angular e Ionic Framework. A PokeAPI foi utilizada como fonte de dados para os Pokémons. Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou contribuir com melhorias.
