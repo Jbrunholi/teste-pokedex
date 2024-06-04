@@ -2,19 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from '../../services/pokeapi.service';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
 export class HomePage implements OnInit {
   pokemons: any[] = [];
   filteredPokemons: any[] = [];
   favoritePokemons: any[] = [];
   currentPage: number = 0;
 
-  constructor(private pokeapiService: PokeapiService, private router: Router) { }
+  constructor(
+    private pokeapiService: PokeapiService,
+    private router: Router,
+    private favoriteService: FavoriteService
+  ) { }
 
   ngOnInit() {
     this.loadPokemons();
