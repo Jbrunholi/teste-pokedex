@@ -44,7 +44,7 @@ src/
 │   ├── app.module.ts
 │   ├── Shared
 │   │   ├── pipes
-│   │   |   ├── capitalize.pipe.ts
+│   │   │   ├── capitalize.pipe.ts
 ├── assets/
 ├── theme/
 │   ├── variables.scss
