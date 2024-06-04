@@ -42,9 +42,9 @@ src/
 │   │   ├── pokeapi.service.ts
 │   ├── app.component.ts
 │   ├── app.module.ts
-|   ├── Shared
-|   |   ├── pipes
-|   |   |   ├── capitalize.pipe.ts
+│   ├── Shared
+│   │   ├── pipes
+│   │   |   ├── capitalize.pipe.ts
 ├── assets/
 ├── theme/
 │   ├── variables.scss
