@@ -1,0 +1,74 @@
+ion-card {
+  margin: 16px;
+  text-align: center;
+  padding: 10px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  ion-card-title {
+    font-size: 1.5em;
+    text-transform: capitalize;
+  }
+
+  ion-card-content {
+    p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+  }
+}
+
+.pokemon-header {
+  background-color: #950606;
+  padding: 10px;
+}
+
+ion-button {
+  display: flex;
+  align-self: center;
+  margin-top: 10px;
+  max-width: 200px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  color: #fff; /* Cor do texto */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: #ffa726; /* Cor do botão ao passar o mouse */
+  }
+
+  &:active {
+    color: #fb8c00; /* Cor do botão ao clicar */
+  }
+}
+
+@media (max-width: 768px) {
+  ion-card {
+    padding: 8px;
+
+    img {
+      width: 120px;
+      height: 120px;
+    }
+
+    ion-card-title {
+      font-size: 1.2em;
+    }
+
+    ion-card-content {
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+
+  ion-button {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+}

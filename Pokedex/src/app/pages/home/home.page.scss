@@ -1,0 +1,48 @@
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+ion-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  padding: 10px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  ion-card-title {
+    text-transform: capitalize;
+  }
+}
+
+@media (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  ion-card {
+    padding: 8px;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+ion-searchbar {
+  padding: 0 16px;
+  margin: 16px 0;
+}
