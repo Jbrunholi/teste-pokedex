@@ -92,3 +92,6 @@ Este comando iniciará um servidor de desenvolvimento e abrirá a aplicação no
 Este projeto é licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
 Este projeto foi desenvolvido com o objetivo de aprender e praticar Angular e Ionic Framework. A PokeAPI foi utilizada como fonte de dados para os Pokémons. Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou contribuir com melhorias.
+
+## Vídeo demonstrativo
+https://youtu.be/ugBjDdr4zrw
