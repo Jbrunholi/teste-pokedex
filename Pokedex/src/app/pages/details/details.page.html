@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ pokemon?.name }}</ion-title>
+    <ion-title>{{ pokemon?.name | capitalize}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="toggleFavorite()">
         <ion-icon [name]="isFavorite ? 'star' : 'star-outline'"></ion-icon>
